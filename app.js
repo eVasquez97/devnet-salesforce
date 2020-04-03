@@ -20,6 +20,11 @@ client.connect( () =>{
     console.log('Connected');
 });
 
+app.get('/', (req, res) => {
+  console.log('Redirecting...');
+  res.redirect('/notifications');
+});
+
 // Queries - Case
 app.get('/cases', (req, res)=>{
     client.query('SELECT * FROM salesforce.case', (err, data)=>{
