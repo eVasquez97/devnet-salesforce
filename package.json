@@ -1,0 +1,11 @@
+{
+  "name": "devnet-salesforce",
+  "version": "1.0.0",
+  "description": "Middleware for DevNet-Salesforce integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduardo Vásquez",
+  "license": "ISC"
+}
