@@ -20,6 +20,7 @@ client.connect( () =>{
     console.log('Connected');
 });
 
+// Redireccionar siempre
 app.get('/', (req, res) => {
   console.log('Redirecting...');
   res.redirect('/notifications');
