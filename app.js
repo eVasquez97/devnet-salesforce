@@ -10,7 +10,7 @@ var PORT = process.env.PORT || 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Configurar conexión, middlewares y rutas
+// Configurar conexión
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
