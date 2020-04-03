@@ -2,9 +2,9 @@
   "name": "devnet-salesforce",
   "version": "1.0.0",
   "description": "Middleware for DevNet-Salesforce integration.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "author": "Eduardo Vásquez",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "pg": "^8.0.0"
   }
 }
