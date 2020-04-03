@@ -38,6 +38,18 @@ app.get('/cases', (req, res)=>{
     });
 });
 
+app.get('/cases/:id', (req, res)=>{
+  client.query('SELECT * FROM salesforce.case WHERE id = $1', [req.params.id], (err, data)=>{
+    if (err) {
+      console.log(err);
+      res.status(400).send(err);
+    } 
+    else {
+      res.json(data.rows[0]);
+    }
+  });
+});
+
 // Queries - Notification__c
 app.get('/notifications', (req, res)=>{
   client.query('SELECT * FROM salesforce.notification__c', (err, data)=>{
@@ -46,6 +58,17 @@ app.get('/notifications', (req, res)=>{
       res.status(400).send(err);
     } else {
       res.json(data.rows);
+    }
+  });
+});
+
+app.get('/notifications/:id', (req, res)=>{
+  client.query('SELECT * FROM salesforce.notification__c WHERE id = $1', [req.params.id], (err, data)=>{
+    if (err) {
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.json(data.rows[0]);
     }
   });
 });
