@@ -20,6 +20,18 @@ client.connect( () =>{
     console.log('Connected');
 });
 
+// Queries
+app.get('/cases', (req, res)=>{
+    client.query('SELECT * FROM salesforce.case', (err, data)=>{
+      if (err) {
+        console.log(err);
+        res.status(400).send(err);
+      } else {
+        res.json(data.rows);
+      }
+    });
+  });
+
 // Inicializar
 app.listen(PORT, () => {
     console.log("Listening on PORT:", PORT);
