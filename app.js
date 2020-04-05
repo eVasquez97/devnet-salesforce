@@ -75,10 +75,10 @@ app.get('/notifications/:id', (req, res)=>{
 
 app.post('/notifications', (req, res) => {
   client.query("INSERT INTO " +
-    "salesforce.notification__c(details__c, category__c, type__c, eventid__c, status__c, issue_name__c, cisco_dna_link__c, priority__c, domain__c)" +
-    "VALUES($1, $2, $3, $4, $5, $6, $7, $8, %9) RETURNING *",
+    "salesforce.notification__c(details__c, instance_id__c, category__c, type__c, eventid__c, status__c, issue_name__c, cisco_dna_link__c, priority__c, domain__c)" +
+    "VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
     
-    [req.body.details__c, req.body.category__c, req.body.type__c, req.body.eventid__c, req.body.status__c, req.body.issue_name__c, 
+    [req.body.details__c, req.body.instance_id__c, req.body.category__c, req.body.type__c, req.body.eventid__c, req.body.status__c, req.body.issue_name__c, 
     req.body.cisco_dna_link__c, req.body.priority__c, req.body.domain__c],
 
     (err, data) => {
