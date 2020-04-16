@@ -1,0 +1,30 @@
+{
+    "version": null, 
+    "instanceId": "d9a653b3-db0e-4690-8d57-795c3ecd06c6", 
+    "eventId": "NETWORK-NETWORKS-2-259", 
+    "namespace": "ASSURANCE", 
+    "name": null, 
+    "description": null, 
+    "type": "NETWORK", 
+    "category": "ERROR", 
+    "domain": "Know Your Network", 
+    "subDomain": "Networks", 
+    "severity": 2, 
+    "source": "ndp", 
+    "timestamp": 1586198820257, 
+    "tags": null, 
+    "details": {
+        "Type": "Network Device", 
+        "Assurance Issue Priority": "P1", 
+        "Assurance Issue Details": "EIGRP adjacency failed on device:10.93.141.22, interface:vasileft11 with neighbor 11.11.11.2", 
+        "Device": "10.93.141.22", 
+        "Assurance Issue Name": "EIGRP Adjacency Failed on Device 10.93.141.22 Interface vasileft11 with Neighbor 11.11.11.2", 
+        "Assurance Issue Category": "connectivity", 
+        "Assurance Issue Status": "active"
+        }, 
+    "ciscoDnaEventLink": "https://10.93.141.35/dna/assurance/issueDetails?issueId=d9a653b3-db0e-4690-8d57-795c3ecd06c6", 
+    "note": "To programmatically get more info see here - https://<ip-address>/dna/platform/app/consumer-portal/developer-toolkit/apis?apiId=8684-39bb-4e89-a6e4", 
+    "tntId": "", 
+    "context": null, 
+    "tenantId": ""
+}
