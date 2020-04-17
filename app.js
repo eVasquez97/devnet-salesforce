@@ -78,9 +78,9 @@ app.post('/notifications', (req, res) => {
     "salesforce.notification__c(details__c, instance_id__c, category__c, type__c, eventid__c, status__c, issue_name__c, cisco_dna_link__c, priority__c, domain__c)" +
     "VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
     
-    [req.body["Assurance Issue Details"], req.body.instanceId, req.body.category, 
-    req.body.type, req.body.eventId, req.body["Assurance Issue Status"], req.body["Assurance Issue Name"], 
-    req.body.ciscoDnaEventLink, req.body["Assurance Issue Priority"], req.body.domain],
+    [req.body.details["Assurance Issue Details"], req.body.instanceId, req.body.category, 
+    req.body.type, req.body.eventId, req.body.details["Assurance Issue Status"], req.body.details["Assurance Issue Name"], 
+    req.body.ciscoDnaEventLink, req.body.details["Assurance Issue Priority"], req.body.domain],
 
     (err, data) => {
       if(err){
