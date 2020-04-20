@@ -53,12 +53,12 @@ app.get('/cases/:id', (req, res)=>{
 // Queries - Notification__c
 app.post('/notifications', (req, res) => {
   client.query("INSERT INTO " +
-    "salesforce.case(details__c, instance_id__c, category__c, type__c, eventid__c, status__c, issue_name__c, cisco_dna_link__c, priority__c, domain__c)" +
-    "VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
+    "salesforce.case(details__c, instanceid__c, category__c, type__c, event_id__c, status, issue_name__c, cisco_dna_link__c, priority__c, domain__c, subject)" +
+    "VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *",
     
     [req.body.details["Assurance Issue Details"], req.body.instanceId, req.body.category, 
     req.body.type, req.body.eventId, req.body.details["Assurance Issue Status"], req.body.details["Assurance Issue Name"], 
-    req.body.ciscoDnaEventLink, req.body.details["Assurance Issue Priority"], req.body.domain],
+    req.body.ciscoDnaEventLink, req.body.details["Assurance Issue Priority"], req.body.domain, req.body.details["Assurance Issue Details"]],
 
     (err, data) => {
       if(err){
