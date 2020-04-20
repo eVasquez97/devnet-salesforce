@@ -23,7 +23,7 @@ client.connect( () =>{
 // Redireccionar siempre
 app.get('/', (req, res) => {
   console.log('Redirecting...');
-  res.redirect('/notifications');
+  res.redirect('/cases');
 });
 
 // Queries - Case
@@ -51,31 +51,9 @@ app.get('/cases/:id', (req, res)=>{
 });
 
 // Queries - Notification__c
-app.get('/notifications', (req, res)=>{
-  client.query('SELECT * FROM salesforce.notification__c ORDER BY id DESC', (err, data)=>{
-    if (err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(data.rows);
-    }
-  });
-});
-
-app.get('/notifications/:id', (req, res)=>{
-  client.query('SELECT * FROM salesforce.notification__c WHERE id = $1', [req.params.id], (err, data)=>{
-    if (err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      res.json(data.rows[0]);
-    }
-  });
-});
-
 app.post('/notifications', (req, res) => {
   client.query("INSERT INTO " +
-    "salesforce.notification__c(details__c, instance_id__c, category__c, type__c, eventid__c, status__c, issue_name__c, cisco_dna_link__c, priority__c, domain__c)" +
+    "salesforce.case(details__c, instance_id__c, category__c, type__c, eventid__c, status__c, issue_name__c, cisco_dna_link__c, priority__c, domain__c)" +
     "VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
     
     [req.body.details["Assurance Issue Details"], req.body.instanceId, req.body.category, 
