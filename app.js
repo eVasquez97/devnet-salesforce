@@ -38,14 +38,15 @@ app.get('/cases', (req, res)=>{
     });
 });
 
-app.get('/cases/:id', (req, res)=>{
-  client.query('SELECT * FROM salesforce.case WHERE id = $1', [req.params.id], (err, data)=>{
+// obtener instanceid__c para verificar que sea único
+app.get('/cases/:instanceid__c', (req, res)=>{
+  client.query('SELECT * FROM salesforce.case WHERE instanceid__c = $1', [req.params.instanceid__c], (err, data)=>{
     if (err) {
       console.log(err);
       res.status(400).send(err);
     } 
     else {
-      res.json(data.rows[0]);
+      res.json(data.rows);
     }
   });
 });
